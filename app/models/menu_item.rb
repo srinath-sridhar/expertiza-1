@@ -63,7 +63,7 @@ class MenuItem < ActiveRecord::Base
     if parent_id and parent_id.to_i > 0
       next_seq = MenuItem.find_by_sql("select coalesce(max(seq) + 1, 1) as seq from menu_items where parent_id = #{parent_id}")
     else
-      next_seq = MenuItem.find_by_sql("select coalesce(max(seq) + 1, 1) as seq from menu_items where parent_id is null")
+         next_seq = MenuItem.find_by_sql("select coalesce(max(seq) + 1, 1) as seq from menu_items where parent_id is null")
     end
 
     if next_seq
